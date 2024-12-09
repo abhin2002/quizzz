@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  backend-fastapi:
+    build: ./fastapi
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+    networks:
+      - deploy_network
+    container_name: backend-fastapi
+
+networks:
+  deploy_network:
+    driver: bridge
